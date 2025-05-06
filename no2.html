@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Program Penggajian</title>
+  <style>
+    body {
+      font-family: Georgia;
+    }
+    table {
+      margin: auto;
+      padding: 10px;
+      border: 2px solid black;
+    }
+    h2, h3 {
+      text-align: center;
+    }
+    td {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>PROGRAM PENGGAJIAN</h2>
+<h3>PT. SATU MALAM 2 CINTA</h3>
+<hr style="width: 50%;">
+
+<form name="gajiForm">
+  <table>
+    <tr>
+      <td>Nama Pegawai :</td>
+      <td><input type="text" name="nama" /></td>
+    </tr>
+    <tr>
+      <td>Jam Kerja :</td>
+      <td><input type="number" name="jam" /></td>
+    </tr>
+    <tr>
+      <td>Upah per Jam :</td>
+      <td><input type="number" name="upah" /></td>
+    </tr>
+    <tr>
+      <td>Anak :</td>
+      <td><input type="number" name="anak" /></td>
+    </tr>
+    <tr>
+      <td>Gaji :</td>
+      <td><input type="text" name="gaji" readonly /></td>
+    </tr>
+    <tr>
+      <td>Tunj. anak 10% :</td>
+      <td><input type="text" name="tunjangan" readonly /></td>
+    </tr>
+    <tr>
+      <td>Total Gaji :</td>
+      <td><input type="text" name="total" readonly /></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <button type="button" onclick="hitungGaji()">proses</button>
+        <button type="reset">Reset</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<script>
+function hitungGaji() {
+  let jam = parseFloat(document.gajiForm.jam.value);
+  let upah = parseFloat(document.gajiForm.upah.value);
+  
+  let gaji = jam * upah;
+  let tunjangan = gaji * 0.10;
+  let total = gaji + tunjangan;
+
+  document.gajiForm.gaji.value = gaji.toFixed(2);
+  document.gajiForm.tunjangan.value = tunjangan.toFixed(2);
+  document.gajiForm.total.value = total.toFixed(2);
+}
+</script>
+
+</body>
+</html>
