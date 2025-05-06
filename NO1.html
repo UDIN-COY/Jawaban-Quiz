@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Pembelian Barang</title>
+  <style>
+    body {
+      font-family: Georgia;
+    }
+    table {
+      border: 2px solid black;
+      padding: 10px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    td {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>FORM PEMBELIAN BARANG</h2>
+<hr style="width: 50%;">
+
+<form name="formBarang">
+  <table>
+    <tr>
+      <td>Nama Barang</td>
+      <td>
+        <select name="namaBarang">
+          <option value="Monitor">Monitor</option>
+          <option value="Keyboard">Keyboard</option>
+          <option value="Mouse">Mouse</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Jumlah</td>
+      <td><input type="number" name="jumlah" /></td>
+    </tr>
+    <tr>
+      <td>Harga</td>
+      <td><input type="number" name="harga" /></td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td><input type="text" name="total" readonly /></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <button type="button" onclick="hitungTotal()">proses</button>
+        <button type="reset">Reset</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<script>
+  function hitungTotal() {
+    let jumlah = document.forms["formBarang"]["jumlah"].value;
+    let harga = document.forms["formBarang"]["harga"].value;
+    let total = jumlah * harga;
+    document.forms["formBarang"]["total"].value = total;
+  }
+</script>
+
+</body>
+</html>
